@@ -3,8 +3,12 @@ WORKDIR /app
 
 FROM base as builder
 
-COPY . .
+COPY common common
+COPY rush.json .
+COPY apps/nestjs-app/package.json apps/nestjs-app/package.json
+
 RUN node common/scripts/install-run-rush.js install
+COPY . .
 RUN node common/scripts/install-run-rush.js build
 RUN node common/scripts/install-run-rush.js deploy -s nestjs
 RUN cp -R ./apps/nestjs-app/dist ./common/deploy/apps/nestjs-app
