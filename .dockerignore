@@ -1,0 +1,13 @@
+.git
+.idea
+*.log
+.env
+.dockerignore
+**/node_modules
+**/dist
+Dockerfile
+common/temp
+common/deploy
+common/git-hooks
+common/autoinstallers/*/.npmrc
+**/.rush/temp/
